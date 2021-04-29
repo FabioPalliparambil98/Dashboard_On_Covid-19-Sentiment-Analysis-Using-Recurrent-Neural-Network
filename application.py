@@ -8,7 +8,7 @@ import pandas as pd
 import hashtag
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 df_general_filter = pd.read_csv('https://raw.githubusercontent.com/FabioPalliparambil98/cleaned-covid-dataset/main/general_covid.csv')
 df_restriction_filter = pd.read_csv('https://raw.githubusercontent.com/FabioPalliparambil98/cleaned-covid-dataset/main/covid_restriction.csv')
@@ -33,7 +33,7 @@ It displays the Home Pages of the Visualisations.
 """
 
 
-@app.route('/')
+@application.route('/')
 def homepage():
     sentiment_general = sentiment_data(df_general_filter_sentiment)
     sentiment_vaccination = sentiment_data(df_restriction_filter_sentiment)
@@ -70,4 +70,4 @@ def sentiment_data(df):
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
